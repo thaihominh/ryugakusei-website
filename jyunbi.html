@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留学生の進学準備</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #1abc9c;
+            color: white;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-title {
+            font-size: 2.5em;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: center;
+            background-color: #16a085;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navigation a {
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin: 0 15px;
+            transition: all 0.3s ease;
+        }
+
+        .navigation a:hover {
+            background-color: #1abc9c;
+            transform: scale(1.1);
+        }
+
+        .content {
+            padding: 40px 20px;
+            text-align: center;
+            background-color: #ffffff;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            border-radius: 8px;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        .content h2 {
+            margin: 20px 0;
+            font-size: 2.5em;
+            font-weight: 600;
+        }
+
+        .content p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .features {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .feature {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 280px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            text-align: center;
+            transform: scale(1);
+            margin: 10px;
+            position: relative;
+        }
+
+        .feature:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+            object-fit: cover;
+            backface-visibility: hidden;
+        }
+
+        .feature:hover img {
+            transform: scale(1.1);
+        }
+
+        .feature-content {
+            padding: 20px;
+        }
+
+        .feature-content h3 {
+            color: #16a085;
+            font-weight: 600;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+
+        .feature-content p {
+            font-size: 1.1em;
+            color: #666;
+        }
+        a {
+            font-size: 1em;
+            display: inline-block;
+            margin-top: 20px;
+            color: #ffffff;
+            background-color: #4CAF50;
+            padding: 9px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+        }
+        a:hover {
+            background-color: #388e3c;
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-title">進学準備サポートサイト</div>
+    </header>
+    <div class="content fade-in">
+        <h2>進学準備の情報</h2>
+        <p>このページでは、留学生が進学前に準備するべき情報を紹介します。</p>
+
+        <div class="features">
+            <div class="feature" onclick="window.location.href='japanese-details.html'">
+                <img src="https://i.imgur.com/W2d0Opj.png" alt="日本語能力試験">
+                <div class="feature-content">
+                    <h3>日本語能力試験 (JLPT)</h3>
+                    <p>日本語の理解が進学、日常生活で大きく影響します。</p>
+                </div>
+            </div>
+
+            <div class="feature" onclick="window.location.href='learning-japanese.html'">
+                <img src="https://i.imgur.com/qnrKCTD.jpeg" alt="楽しく学ぶ日本語">
+                <div class="feature-content">
+                    <h3>楽しく学ぶ日本語</h3>
+                    <p>言語学習のポイントとアドバイスを紹介します。</p>
+                </div>
+            </div>
+
+            <div class="feature" onclick="window.location.href='qualification-details.html'">
+                <img src="https://i.imgur.com/yHH8Jun.jpeg" alt="資格の勉強">
+                <div class="feature-content">
+                    <h3>資格の勉強</h3>
+                    <p>進学前に取得しておくと有利な資格を確認しましょう。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+        <a href="homepage.html">トップへ戻る</a>
+</body>
+</html>

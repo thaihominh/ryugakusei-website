@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>掲示板</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input, form textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #5cb85c;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+
+        .post {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .post:last-child {
+            border-bottom: none;
+        }
+
+        .post h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .post p {
+            margin: 5px 0;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>自由に投稿できる掲示板</h1>
+    </header>
+    <div class="container">
+        <h2>新しい投稿を追加</h2>
+        <form id="postForm">
+            <input type="text" id="username" placeholder="お名前" required>
+            <textarea id="message" rows="4" placeholder="メッセージを入力" required></textarea>
+            <button type="submit">投稿する</button>
+        </form>
+        <h2>投稿一覧</h2>
+        <div id="postsContainer"></div>
+    </div>
+
+    <script>
+        const postForm = document.getElementById('postForm');
+        const postsContainer = document.getElementById('postsContainer');
+
+        postForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (username && message) {
+                addPost(username, message);
+                postForm.reset();
+            }
+        });
+
+        function addPost(username, message) {
+            const post = document.createElement('div');
+            post.classList.add('post');
+
+            const postTitle = document.createElement('h3');
+            postTitle.textContent = username;
+
+            const postMessage = document.createElement('p');
+            postMessage.textContent = message;
+
+            post.appendChild(postTitle);
+            post.appendChild(postMessage);
+            postsContainer.prepend(post);
+        }
+    </script>
+</body>
+<a href="toppage.html">トップへ戻る</a>
+</html>

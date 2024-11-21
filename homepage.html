@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留学生サポートサイト</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #2c3e50;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Để chân trang luôn nằm ở cuối */
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px; /* Giảm padding để nhỏ gọn hơn */
+            background-color: #1abc9c;
+            color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-title {
+            font-size: 2em; /* Kích thước tiêu đề nhỏ hơn */
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-info {
+            font-size: 0.8em;
+            text-align: right;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: center;
+            background-color: #16a085;
+            padding: 5px 0; /* Giảm padding để nhỏ gọn hơn */
+        }
+
+        .navigation a {
+            color: white;
+            padding: 8px 15px; /* Giảm padding của các nút */
+            text-decoration: none;
+            transition: transform 0.3s; /* Chỉ giữ hiệu ứng phóng to khi di chuột */
+            font-weight: 500;
+            position: relative;
+            margin: 0 5px; /* Thêm khoảng cách giữa các nút */
+        }
+
+        .navigation a:hover {
+            transform: scale(1.1); /* Hiệu ứng phóng to khi di chuột */
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero {
+            background-image: url('https://i.imgur.com/LTcnNi6.png');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 110px 20px; /* Giảm padding của phần hero */
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1, .hero p {
+            margin: 0;
+            opacity: 0;
+            animation: textReveal 3s forwards;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h1 {
+            font-size: 2.5em; /* Kích thước chữ tiêu đề chính nhỏ hơn */
+            animation-delay: 1s;
+        }
+
+        .hero p {
+            font-size: 1.2em; /* Kích thước chữ cho đoạn mô tả nhỏ hơn */
+            animation-delay: 1.5s;
+        }
+
+        @keyframes textReveal {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+            flex: 1; /* Cho phép nội dung chiếm không gian còn lại */
+        }
+
+        .content h2 {
+            margin: 20px 0;
+            font-size: 2em; /* Kích thước chữ cho tiêu đề nội dung */
+            font-weight: 600;
+        }
+
+        .content p {
+            margin: 0 0 20px 0;
+            font-size: 1.1em; /* Đã giảm kích thước chữ cho nội dung */
+            line-height: 1.5;
+        }
+
+        .features {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .feature {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 240px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            perspective: 1000px;
+            text-align: center; /* Căn giữa nội dung của mục */
+            cursor: pointer; /* Thay đổi con trỏ khi di chuột */
+        }
+
+        .feature:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s;
+            backface-visibility: hidden;
+        }
+
+        .feature:hover img {
+            transform: scale(1.1);
+        }
+
+        .feature-content {
+            padding: 15px;
+        }
+
+        .feature-content h3 {
+            color: #16a085; /* Màu sắc tiêu đề khác cho các khung */
+            font-weight: bold;
+            font-size: 1.2em; /* Kích thước chữ cho tiêu đề khung */
+            margin: 10px 0; /* Khoảng cách giữa tiêu đề và mô tả */
+        }
+
+        .feature-content p {
+            color: #34495e; /* Màu sắc cho mô tả */
+            font-size: 1em; /* Kích thước chữ cho mô tả */
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: auto; /* Để chân trang luôn nằm ở dưới cùng */
+        }
+    </style>
+    <script>
+        function redirect(url) {
+            window.location.href = url; // Chuyển hướng đến URL mới
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-title">留学生サポートサイト</div>
+        <div class="contact-info">お問い合わせ: 小池さんへ: haha | g023c1202@g.neec.ac.jp</div>
+    </header>
+    
+    <!-- Thanh điều hướng -->
+    <div class="navigation">
+        <a href="about us.html">私たちについて</a>
+        <a href="#">奨学金情報</a>
+        <a href="#">留学生生活</a>
+        <a href="#">お問い合わせ</a>
+    </div>
+
+    <!-- Hình ảnh chính (Hero) -->
+    <div class="hero">
+        <h1>留学生サポートサイトへようこそ！</h1>
+        <p>留学生による留学生のためのサポートサイトです。</p>
+    </div>
+
+    <!-- Nội dung chính -->
+    <div class="content">
+        <h2>新入生や留学生向けの情報</h2>
+        <p>このサイトは、日本工学院八王子専門学校での生活をサポートし、留学生同士の交流や情報共有を目的としています。</p>
+
+        <!-- Các mục thông tin chính (Features) -->
+        <div class="features">
+            <div class="feature" onclick="redirect('jyunbi.html')">
+                <img src="https://i.imgur.com/U4rIuxc.jpeg" alt="進学準備の写真">
+                <div class="feature-content">
+                    <h3>進学前に準備すること</h3>
+                    <p>入学前に役立つ準備情報を紹介します。</p>
+                </div>
+            </div>
+            <div class="feature" onclick="redirect('spot.html')">
+                <img src="https://www.neec.ac.jp/common/images/facility/index/hachioji.jpg" alt="学校内スポットの写真">
+                <div class="feature-content">
+                    <h3>学校内のおすすめスポット</h3>
+                    <p>学校の中での人気スポットをチェック！</p>
+                </div>
+            </div>
+            <div class="feature" onclick="redirect('chat.html')">
+                <img src="https://i.imgur.com/l7SZNIZ.jpeg" alt="チャットスペースの写真">
+                <div class="feature-content">
+                    <h3>チャットスペース</h3>
+                    <p>他の留学生と気軽に交流しましょう。</p>
+                </div>
+            </div>
+            <div class="feature" onclick="redirect('bunka.html')">
+                <img src="https://i.imgur.com/6mDhaoO.jpeg" alt="日本の文化の写真">
+                <div class="feature-content">
+                    <h3>日本の文化</h3>
+                    <p>日本の文化やマナーについて学びましょう。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
