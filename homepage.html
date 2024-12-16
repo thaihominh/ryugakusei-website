@@ -23,32 +23,41 @@
 
         header {
             display: flex;
-            justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
             background-color: #1abc9c;
             color: white;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            flex-wrap: wrap;
         }
-
+        
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        header .logo img {
+            height: 50px;
+            margin-right: 10px; /* Khoảng cách giữa logo và tiêu đề */
+        }
+        
         .header-title {
             font-size: 2em;
             font-weight: 700;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
             white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            margin: 0; /* Loại bỏ khoảng cách margin */
         }
-
+        
         .contact-info {
             font-size: 0.8em;
             text-align: right;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            margin-left: auto; /* Đẩy phần contact-info ra bên phải */
         }
-
+        
+        
         .navigation {
             display: flex;
             justify-content: center;
@@ -120,7 +129,7 @@
             overflow-x: auto;
             padding: 20px;
             width: 100%;
-            max-width: 100%;
+            max-width: 100%;      
         }
 
         .feature {
@@ -225,6 +234,9 @@
 </head>
 <body>
     <header>
+        <div class="logo">
+            <img src="https://i.imgur.com/Vvb9FSr.png" alt="Logo" style="height: 50px; margin-right: 10px;">
+        </div>
         <div class="header-title">留学生サポートサイト</div>
         <div class="contact-info">お問い合わせ: 小池さんへ: haha | g023c1202@g.neec.ac.jp</div>
     </header>
